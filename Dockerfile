@@ -9,10 +9,13 @@ ENV COMPOSER_VERSION=1.5.2 \
 COPY install-composer.sh /usr/local/bin/install-composer.sh
 
 RUN apk update --no-cache && \
-    apk add bash ca-certificates curl php7 php7-phar php7-curl \
-    php7-fpm php7-json php7-zlib php7-xml php7-dom php7-ctype php7-opcache php7-zip php7-iconv \
-    php7-pdo php7-pdo_mysql php7-pdo_sqlite php7-pdo_pgsql php7-mbstring php7-session \
-    php7-gd php7-mcrypt php7-openssl php7-sockets php7-posix php7-ldap php7-simplexml \
+    apk add bash ca-certificates curl git openssh \
+    php7-tokenizer php7-redis php7 php7-common php7-phar php7-curl \
+    php7-fpm php7-json php7-zlib php7-xml php7-dom php7-ctype \
+    php7-opcache php7-zip php7-iconv php7-pdo php7-pdo_mysql \
+    php7-pdo_sqlite php7-pdo_pgsql php7-mbstring php7-session \
+    php7-gd php7-mcrypt php7-openssl php7-sockets php7-posix \
+    php7-ldap php7-simplexml php7-xmlreader php7-xmlwriter \
     && mkdir -p $COMPOSER_HOME \
     && ( install-composer.sh && rm /usr/local/bin/install-composer.sh ) \
     && export COMPOSER_ALLOW_SUPERUSER=1 \
