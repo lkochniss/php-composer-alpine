@@ -9,7 +9,7 @@ ENV COMPOSER_VERSION=1.5.2 \
 COPY install-composer.sh /usr/local/bin/install-composer.sh
 
 RUN apk update --no-cache && \
-    apk add bash ca-certificates curl git openssh \
+    apk add bash ca-certificates curl git openssh make \
     php7-tokenizer php7-redis php7 php7-common php7-phar php7-curl \
     php7-fpm php7-json php7-zlib php7-xml php7-dom php7-ctype \
     php7-opcache php7-zip php7-iconv php7-pdo php7-pdo_mysql \
