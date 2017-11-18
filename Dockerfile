@@ -15,7 +15,7 @@ RUN apk update --no-cache && \
     php7-opcache php7-zip php7-iconv php7-pdo php7-pdo_mysql \
     php7-pdo_sqlite php7-pdo_pgsql php7-mbstring php7-session \
     php7-gd php7-mcrypt php7-openssl php7-sockets php7-posix \
-    php7-ldap php7-simplexml php7-xmlreader php7-xmlwriter \
+    php7-ldap php7-simplexml php7-xmlreader php7-xmlwriter php7-xsl \
     && mkdir -p $COMPOSER_HOME \
     && ( install-composer.sh && rm /usr/local/bin/install-composer.sh ) \
     && export COMPOSER_ALLOW_SUPERUSER=1 \
