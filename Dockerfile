@@ -16,6 +16,7 @@ RUN apk update --no-cache && \
     php7-pdo_sqlite php7-pdo_pgsql php7-mbstring php7-session \
     php7-gd php7-mcrypt php7-openssl php7-sockets php7-posix \
     php7-ldap php7-simplexml php7-xmlreader php7-xmlwriter php7-xsl \
+    php7-xdebug --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
     && mkdir -p $COMPOSER_HOME \
     && ( install-composer.sh && rm /usr/local/bin/install-composer.sh ) \
     && export COMPOSER_ALLOW_SUPERUSER=1 \
@@ -24,6 +25,14 @@ RUN apk update --no-cache && \
     && chmod -R 0777 $COMPOSER_HOME/cache \
     && rm -Rf /var/cache/apk/* \
     && rm -Rf $COMPOSER_HOME/cache/*
+
+RUN touch /etc/php7/php.ini; \
+	echo zend_extension=/usr/lib/php7/modules/xdebug.so \
+	echo xdebug.coverage_enable=0 \
+  	echo xdebug.remote_enable=1 \
+  	echo xdebug.remote_connect_back=1 \
+    echo xdebug.remote_log=/tmp/xdebug.log \
+    echo xdebug.remote_autostart=true
 
 VOLUME ["/project", "$COMPOSER_HOME/cache"]
 WORKDIR /project
