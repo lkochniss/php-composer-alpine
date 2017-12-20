@@ -1,6 +1,6 @@
 FROM alpine:3.6
 
-MAINTAINER ckappen <christian.kappen@live.de>
+MAINTAINER ckappen <lukas.kochniss+docker@gmail.com>
 
 ENV COMPOSER_VERSION=1.5.2 \
     COMPOSER_HOME=/composer \

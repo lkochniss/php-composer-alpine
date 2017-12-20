@@ -7,9 +7,9 @@ start:
 	@docker run -it php-composer-alpine
 
 tag:
-	@docker tag php-composer-alpine ckappen/php-composer-alpine
+	@docker tag php-composer-alpine lkochniss/php-composer-alpine
 
 push:
-	@docker push ckappen/php-composer-alpine
+	@docker push lkochniss/php-composer-alpine
 
 
